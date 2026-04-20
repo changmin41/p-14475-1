@@ -2,24 +2,25 @@ package com.ll;
 
 public class Calc {
     public static int run(String expression) {
+        // 공백 기준으로 분할
+        String[] Blank = expression.split(" ");
 
-        // 덧셈 처리
-        if (expression.contains("+")) {
-            int sum = 0;
-            String[] bits = expression.split(" \\+ ");
-            for(int i=0; i< bits.length;i++){
-              sum += Integer.parseInt(bits[i]);
-           }return sum;
+        // 첫 번째 숫자로 시작
+        int result = Integer.parseInt(Blank[0]);
+
+        // 연산자랑 합쳐서 계산하기
+        for (int i = 1; i < Blank.length; i += 2) {
+            String operator = Blank[i];
+            int num = Integer.parseInt(Blank[i + 1]);
+
+            if (operator.equals("+")) {
+                result += num;
+            } else if (operator.equals("-")) {
+                result -= num;
+            }
         }
 
-        // 뺄셈 처리
-        if (expression.contains("-")) {
-            String[] bits = expression.split(" - ");
-            return Integer.parseInt(bits[0]) - Integer.parseInt(bits[1]);
-        }
-
-
-    return 0;
+        return result;
     }
 
 }
