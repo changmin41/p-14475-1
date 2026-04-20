@@ -8,7 +8,7 @@ public class Calc {
         // 첫 번째 숫자로 시작
         int result = Integer.parseInt(Blank[0]);
 
-        // 인덱스 1부터: 연산자, 숫자, 연산자, 숫자...
+        // 연산자랑 합쳐서 계산하기
         for (int i = 1; i < Blank.length; i += 2) {
             String operator = Blank[i];
             int num = Integer.parseInt(Blank[i + 1]);
